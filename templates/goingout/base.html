@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Going Out - Hertfordshire Pub Restaurant Guide - By Starcross Limited</title>
+    <link href="//fonts.googleapis.com/css?family=Della Respira&subset=latin" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Bitter&subset=latin" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'goingout/main.css' %}">
+    {% block header %}
+
+    {% endblock %}
+</head>
+<body>
+
+<div id="header">
+    <span style="float:right;font-family:GoingOut;font-size:62pt;">f</span>
+    <h1>Going Out</h1>
+    <p>A Herts pub-restaurant guide</p>
+
+</div>
+{% block content %}
+{% endblock %}
+
+{% include "google_analytics.html" %}
+</body>
+
+</html>

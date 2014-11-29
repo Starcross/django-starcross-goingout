@@ -1,0 +1,108 @@
+/** Font ideas
+Adamina
+Bitter
+Brawler
+Cantora One (h)
+Delius
+Della Respira h!
+*/
+
+body, html {
+    margin: 2% 4% 2% 4%;
+    font-family: Bitter, Tahoma, sans-serif;
+    font-size: 15px;
+}
+h1,h2,h3 {
+
+    font-family: Della Respira;
+}
+
+h2 {
+    font-size: 24px;
+}
+p {
+    line-height: 150%;
+}
+a {
+    text-decoration: none;
+}
+
+#venue_detail {
+    width: 47%;
+}
+#ratings {
+    padding-top: 22px;
+}
+.rating_item {clear: left }
+#review {
+    clear:left;
+    padding-top: 22px;
+    margin-right: 5%;
+}
+
+
+/****** Style Star Rating Widget *****/
+/**@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);*/
+@font-face {
+	font-family: 'GoingOut';
+	src:url('fonts/GoingOut.ttf') format('truetype')
+}
+
+fieldset, label { margin: 0; padding: 0; }
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; }
+.rating > label:before {
+  margin: 8px;
+  font-size: 2.2em;
+  font-family: GoingOut;
+  display: inline-block;
+}
+.rating > label.food:before {
+  content: "f";
+  color: #aaa
+  }
+.rating > label.beer:before {
+  content: "b";
+  color: #080;
+}
+.rating > label.wine:before {
+  content: "w";
+  color: #a7194b;
+}
+.rating > label.value:before {
+  content: "v";
+  color: #FCE412;
+}
+.rating > label.service:before {
+  content: "s";
+  color: black;
+}
+
+
+.rating > .half:before {
+  position: absolute;
+}
+.rating > .half:before {
+  content: "b";
+}
+
+.rating > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }

@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAe1NOi9EUkYkVTeV4UrRnH_IYr9cQVYYg">
+</script>
+<script type="text/javascript">
+    function initialize() {
+        var mapOptions = {
+            center: { lat: {{ form.position.value.latitude|default:'51.84' }},
+                      lng: {{ form.position.value.longitude|default:'-0.215' }} },
+            zoom: {{ map_zoom|default:'11' }}
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        var infowindow = new google.maps.InfoWindow();
+        {% for venue in venue_list %}
+            var marker_{{ venue.pk }} = new google.maps.Marker({
+                position: new google.maps.LatLng({{ venue.position.latitude }}, {{ venue.position.longitude }}),
+                title: '{{ venue.title|escapejs }}',
+                icon: '{% static 'goingout/marker.png' %}',
+                map: map
+            });
+            google.maps.event.addListener(marker_{{ venue.pk }}, 'click', function() {
+                infowindow.setContent('<div>'+
+                    '<h3><a href="{% url 'goingout:venue' venue.pk %}">{{ venue.title|escapejs }}</a></h3>'+
+                    '<p>{{ venue.description|escapejs }}</p></div>');
+                infowindow.open(map,marker_{{ venue.pk }});
+            });
+
+
+        {% endfor %}
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
