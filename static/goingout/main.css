@@ -13,7 +13,6 @@ body, html {
     font-size: 15px;
 }
 h1,h2,h3 {
-
     font-family: Della Respira;
 }
 
@@ -30,16 +29,24 @@ a {
 #venue_detail {
     width: 47%;
 }
-#ratings {
-    padding-top: 22px;
-}
-.rating_item {clear: left }
 #review {
     clear:left;
     padding-top: 22px;
     margin-right: 5%;
 }
 
+#ratings {
+    padding-top: 22px;
+}
+.rating_item {
+    clear: left;
+}
+.rating_label {
+    margin-top: 12px;
+    padding-left: 12px;
+    float: left;
+    font-size: 10pt;
+}
 
 /****** Style Star Rating Widget *****/
 /**@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);*/
@@ -57,52 +64,51 @@ fieldset, label { margin: 0; padding: 0; }
 
 .rating > input { display: none; }
 .rating > label:before {
-  margin: 8px;
+  margin: 7px;
   font-size: 2.2em;
   font-family: GoingOut;
   display: inline-block;
 }
 .rating > label.food:before {
-  content: "f";
-  color: #aaa
+  content: "F";
   }
 .rating > label.beer:before {
-  content: "b";
-  color: #080;
+  content: "B";
 }
 .rating > label.wine:before {
-  content: "w";
-  color: #a7194b;
+  content: "W";
 }
 .rating > label.value:before {
-  content: "v";
-  color: #FCE412;
+  content: "V";
 }
 .rating > label.service:before {
-  content: "s";
-  color: black;
+  content: "S";
 }
 
-
-.rating > .half:before {
+.rating > label.half:before {
   position: absolute;
 }
-.rating > .half:before {
+.rating > label.half.food:before {
+  content: "f";
+}
+.rating > label.half.beer:before {
   content: "b";
 }
-
-.rating > label {
-  color: #ddd;
- float: right;
+.rating > label.half.wine:before {
+  content: "w";
 }
-
-/***** CSS Magic to Highlight Stars on Hover *****/
-
-.rating > input:checked ~ label, /* show gold star when clicked */
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
-
-.rating > input:checked + label:hover, /* hover current star when changing rating */
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+.rating > label.half.service:before {
+  content: "s";
+}
+.rating > label.half.value:before {
+  content: "v";
+}
+.rating > label {
+  color: #eee;
+  float: right;
+}
+.rating > input:checked ~ label.food { color: #FC7E1F; }
+.rating > input:checked ~ label.beer { color: #080; }
+.rating > input:checked ~ label.wine { color: #a7194b; }
+.rating > input:checked ~ label.service { color: black; }
+.rating > input:checked ~ label.value { color: #F8D915; }

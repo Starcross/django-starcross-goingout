@@ -22,7 +22,6 @@
 <div id="ratings">
     {% for rating in ratings %}
         <div class="rating_item">
-        {{ rating.name|title }}
         <fieldset class="rating">
         {% for radio in rating reversed %}
             {{ radio.tag }}<label class="{% if forloop.counter0|divisibleby:2 %}full{% else %}half{% endif %}
@@ -31,7 +30,9 @@
                                 for="{{ radio.id_for_label }}"></label>
         {% endfor %}
         </fieldset>
+
         </div>
+        <div class="rating_label"> {{ rating.name|title }}</div>
     {{ resetcycle }}
     {% endfor %}
 </div>
