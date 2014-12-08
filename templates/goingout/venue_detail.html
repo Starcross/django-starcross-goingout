@@ -1,14 +1,14 @@
 {% extends "goingout/base.html" %}
 {% block header %}
     <style type="text/css">
-        #map-canvas { width: 50%; height: 600px; margin: 0; padding: 0; float:right}
+        @media (min-width: 770px) {#map_canvas { width: 50%; float:right}}
     </style>
     {% include "goingout/google_map.html" %}
 {% endblock %}
 
 {% block content %}
 
-<div id="map-canvas"></div>
+<div id="map_canvas"></div>
 
 <div id="venue_detail">
 

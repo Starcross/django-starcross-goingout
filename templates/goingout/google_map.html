@@ -9,7 +9,7 @@
                       lng: {{ form.position.value.longitude|default:'-0.215' }} },
             zoom: {{ map_zoom|default:'11' }}
         };
-        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
         var infowindow = new google.maps.InfoWindow();
         {% for venue in venue_list %}
             var marker_{{ venue.pk }} = new google.maps.Marker({
