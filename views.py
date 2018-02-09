@@ -3,7 +3,7 @@ from django.views.generic.edit import UpdateView
 from django import forms
 from django.forms.models import fields_for_model
 
-from models import Venue, Ratings
+from goingout.models import Venue, Ratings
 
 ratings_fields = fields_for_model(Ratings).keys()
 
@@ -13,8 +13,9 @@ class VenueList(ListView):
 class VenueDetailForm(forms.ModelForm):
     class Meta:
         model = Venue
+        fields = '__all__'
         # Assign all ratings widgets as disabled radio select buttons
-        widgets = {r : forms.RadioSelect(attrs={ 'disabled':'disabled' }) for r in ratings_fields}
+        widgets = {r: forms.RadioSelect(attrs={'disabled': 'disabled'}) for r in ratings_fields}
 
 class VenueDetail(UpdateView):
     # This is a detail class really but will use read only ratings fields to display

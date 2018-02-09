@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Venue
+from goingout.models import Venue
 
 # Register your models here.
 

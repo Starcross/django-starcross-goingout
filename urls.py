@@ -1,10 +1,10 @@
-from django.conf.urls import patterns, url
+from django.urls import path
 
-from views import VenueList, VenueDetail
+from goingout.views import VenueList, VenueDetail
 
-urlpatterns = patterns('',
+app_name = 'goingout'
+urlpatterns = [
     # ex: /goingout/
-    url(r'^$', VenueList.as_view(), name='venue_list'),
-    url(r'^(?P<pk>\d+)/$', VenueDetail.as_view(), name='venue'),
-
-)
+    path('', VenueList.as_view(), name='venue_list'),
+    path('<int:pk>', VenueDetail.as_view(), name='venue')
+]
