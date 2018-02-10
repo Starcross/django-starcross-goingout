@@ -3,9 +3,9 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Going Out - Hertfordshire Pub Restaurant Guide - By Starcross Limited</title>
+    <title>Going Out - Hertfordshire Pub Restaurant Guide</title>
     <link href="//fonts.googleapis.com/css?family=Della Respira&subset=latin" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Bitter&subset=latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Bitter&subset=latin" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{% static 'goingout/main.css' %}">
     {% block header %}
 
@@ -19,10 +19,14 @@
     <p>A Herts pub-restaurant guide</p>
 
 </div>
-{% block content %}
-{% endblock %}
+
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
 
 {% include "google_analytics.html" %}
+
 </body>
 
 </html>

@@ -2,12 +2,14 @@
 <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAe1NOi9EUkYkVTeV4UrRnH_IYr9cQVYYg">
 </script>
+<script type="text/javascript" src="{% static 'goingout/map_style.js' %}"></script>
 <script type="text/javascript">
     function initialize() {
         var mapOptions = {
             center: { lat: {{ form.position.value.latitude|default:'51.84' }},
                       lng: {{ form.position.value.longitude|default:'-0.215' }} },
-            zoom: {{ map_zoom|default:'11' }}
+            zoom: {{ map_zoom|default:'11' }},
+            styles: map_style
         };
         var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
         var infowindow = new google.maps.InfoWindow();
