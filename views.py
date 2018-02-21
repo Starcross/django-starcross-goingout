@@ -40,7 +40,7 @@ class VenueList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(VenueList, self).get_context_data(**kwargs)
-        formset = modelformset_factory(Venue, form=VenueDetailForm)
+        formset = modelformset_factory(Venue, form=VenueDetailForm, extra=0)
         context['form'] = formset()
         for i, venue in enumerate(context['form']):
             context['form'][i].ratings = [context['form'][i][r] for r in ratings_fields]
