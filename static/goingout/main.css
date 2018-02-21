@@ -25,7 +25,9 @@ h1,h2,h3 {
 h2 {
     font-size: 24px;
 }
-
+h3 {
+    font-size: 16px;
+}
 #content {
     width: 100%;
 }
@@ -35,6 +37,7 @@ p {
 }
 a {
     text-decoration: none;
+    color: #d2723e;
 }
 
 #map_canvas {
@@ -55,6 +58,7 @@ a {
 #ratings {
     padding-top: 22px;
 }
+
 .rating_item {
     clear: left;
 }
@@ -125,6 +129,32 @@ fieldset, label { margin: 0; padding: 0; }
 .rating > input:checked ~ label.wine { color: #a7194b; }
 .rating > input:checked ~ label.service { color: black; }
 .rating > input:checked ~ label.value { color: #F8D915; }
+
+/* Mini ratings with review preview for list view */
+
+.review_preview_block {
+    background: #fbfbfb;
+    margin: 12px;
+}
+
+.review_preview_content {
+    padding-top: 8px;
+}
+h3.review_preview_content {
+    margin-top: 0px;
+}
+
+
+#ratings.mini {
+    font-size: 7px;
+    float: left;
+    margin: 8px;
+    padding-top: 8px
+}
+.rating.mini > label:before {
+  margin: 2px;
+}
+
 
 @media all and (max-width: 770px) {
     #map_canvas {

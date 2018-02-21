@@ -8,4 +8,39 @@
 
     <div id="map_canvas"></div>
 
+    {% for venue in form %}
+
+    <div class="review_preview_block">
+
+        <div id="ratings" class="mini">
+            {% for rating in venue.ratings %}
+                <div class="rating_item">
+                <fieldset class="rating mini">
+                {% for radio in rating reversed %}
+                    {{ radio.tag }}
+                    <label title="{{ rating.name|capfirst }}"
+                           class="{% if forloop.counter0|divisibleby:2 %}full{% else %}half{% endif %}
+                                  {{ rating.name }}"
+                                  {% if forloop.last %} style="display: none" {% endif %}
+                           for="{{ radio.id_for_label }}"></label>
+                {% endfor %}
+                </fieldset>
+
+                </div>
+            {{ resetcycle }}
+            {% endfor %}
+        </div>
+
+
+        <div class="review_preview_content">
+            <h3><a href="{{ venue.id.value }}">{{ venue.title.value }}</a></h3>
+            <p>{{ venue.description.value }}</p>
+        </div>
+        <div style="clear:both"></div>
+
+    </div>
+
+    {% endfor %}
+
+
 {% endblock %}

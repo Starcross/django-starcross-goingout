@@ -3,11 +3,13 @@ from django.forms import RadioSelect
 from geoposition.fields import GeopositionField
 from tinymce.models import HTMLField
 
-# Create your models here.
+# Venue models definitions
 
 scores = [(i,i) for i in range(11)]
 
+
 class Ratings(models.Model):
+    """ Abstract class for venue ratings """
 
     food = models.IntegerField(choices=scores,default=0)
     beer = models.IntegerField(choices=scores,default=0)
@@ -17,6 +19,7 @@ class Ratings(models.Model):
 
     class Meta:
         abstract = True
+
 
 class Venue(Ratings):
 
