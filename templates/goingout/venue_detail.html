@@ -1,4 +1,9 @@
 {% extends "goingout/base.html" %}
+
+{% block title %}
+    - {{ form.title.value }}
+{% endblock %}
+
 {% block header %}
     <style type="text/css">
         @media (min-width: 770px) {#map_canvas { width: 50%; float:right}}
