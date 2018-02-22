@@ -165,4 +165,10 @@ h3.review_preview_content {
     #venue_detail {
         width: auto;
     }
+    h1 {
+        font-size: 1.6em;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
 }
