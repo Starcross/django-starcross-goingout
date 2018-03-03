@@ -22,7 +22,7 @@
             });
             google.maps.event.addListener(marker_{{ venue.pk }}, 'click', function() {
                 infowindow.setContent('<div>'+
-                    '<h3><a href="{% url 'goingout:venue' venue.pk %}">{{ venue.title|escapejs }}</a></h3>'+
+                    '<h3><a href="{% url 'goingout:venue' venue.pk venue.slug %}">{{ venue.title|escapejs }}</a></h3>'+
                     '<p>{{ venue.description|escapejs }}</p></div>');
                 infowindow.open(map,marker_{{ venue.pk }});
             });

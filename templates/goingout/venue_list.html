@@ -33,7 +33,9 @@
 
 
         <div class="review_preview_content">
-            <h3><a href="{{ venue.id.value }}">{{ venue.title.value }}</a></h3>
+            <h3>
+                <a href="{% url 'goingout:venue' venue.id.value venue.slug %}">{{ venue.title.value }}</a>
+            </h3>
             <p>{{ venue.description.value }}</p>
         </div>
         <div style="clear:both"></div>

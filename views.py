@@ -44,4 +44,7 @@ class VenueList(ListView):
         context['form'] = formset()
         for i, venue in enumerate(context['form']):
             context['form'][i].ratings = [context['form'][i][r] for r in ratings_fields]
+            # Make the slug available in the form as well. Assumes form items and object_list
+            # are in the same order
+            context['form'][i].slug = self.object_list[i].slug
         return context

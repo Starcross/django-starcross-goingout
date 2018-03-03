@@ -1,5 +1,5 @@
 from django.db import models
-from django.forms import RadioSelect
+from django.template.defaultfilters import slugify
 from geoposition.fields import GeopositionField
 from tinymce.models import HTMLField
 
@@ -29,10 +29,9 @@ class Venue(Ratings):
     website = models.URLField(blank=True)
     position = GeopositionField()
 
+    @property
+    def slug(self):
+        return slugify(self.title)
+
     def __str__(self):
         return self.title
-
-
-
-
-

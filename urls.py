@@ -4,7 +4,8 @@ from goingout.views import VenueList, VenueDetail
 
 app_name = 'goingout'
 urlpatterns = [
-    # ex: /goingout/
+    # /goingout/venue_list
     path('', VenueList.as_view(), name='venue_list'),
-    path('<int:pk>', VenueDetail.as_view(), name='venue')
+    # /goingout/2/the-red-lion
+    path('<int:pk>/<slug>/', VenueDetail.as_view(), name='venue')
 ]
